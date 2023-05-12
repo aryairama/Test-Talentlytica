@@ -70,13 +70,15 @@ const Home = () => {
                       />
                     </SimpleTable.BodyContent>
                     <SimpleTable.BodyContent className="w-[25px]">
-                      {index > 0 && (
+                      {index > 0 ? (
                         <img
                           src={iconClose}
                           className="cursor-pointer min-w-[25px] min-h-[25px]"
                           alt="icon-close"
                           onClick={() => handlerRemoveDataStudentAssessment(index)}
                         />
+                      ) : (
+                        <></>
                       )}
                     </SimpleTable.BodyContent>
                   </SimpleTable.BodyTr>
