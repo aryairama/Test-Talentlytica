@@ -30,28 +30,28 @@ const Home = () => {
                         <img src={iconUser} alt="icon-user" /> Mahasiswa {index + 1}
                       </div>
                     </SimpleTable.BodyContent>
-                    <SimpleTable.BodyContent>
+                    <SimpleTable.BodyContent className="min-w-[70px]">
                       <Select
                         value={listOptionAssessment.filter((option) => option.value === assessment.aspek_penilaian_1)}
                         options={listOptionAssessment}
                         onChange={(e) => handlerSelectAssessment(index, 'aspek_penilaian_1', e.value)}
                       />
                     </SimpleTable.BodyContent>
-                    <SimpleTable.BodyContent>
+                    <SimpleTable.BodyContent className="min-w-[70px]">
                       <Select
                         value={listOptionAssessment.filter((option) => option.value === assessment.aspek_penilaian_2)}
                         options={listOptionAssessment}
                         onChange={(e) => handlerSelectAssessment(index, 'aspek_penilaian_2', e.value)}
                       />
                     </SimpleTable.BodyContent>
-                    <SimpleTable.BodyContent>
+                    <SimpleTable.BodyContent className="min-w-[70px]">
                       <Select
                         value={listOptionAssessment.filter((option) => option.value === assessment.aspek_penilaian_3)}
                         options={listOptionAssessment}
                         onChange={(e) => handlerSelectAssessment(index, 'aspek_penilaian_3', e.value)}
                       />
                     </SimpleTable.BodyContent>
-                    <SimpleTable.BodyContent>
+                    <SimpleTable.BodyContent className="min-w-[70px]">
                       <Select
                         value={listOptionAssessment.filter((option) => option.value === assessment.aspek_penilaian_4)}
                         options={listOptionAssessment}

@@ -30,8 +30,8 @@ SimpleTable.BodyTr = ({ children, ...props }) => {
   return <tr className={style['simple-table-tr']}>{children}</tr>;
 };
 
-SimpleTable.BodyContent = ({ children, ...props }) => {
-  return <td className={style['simple-table-td']}>{children}</td>;
+SimpleTable.BodyContent = ({ children, className, ...props }) => {
+  return <td className={`${style['simple-table-td']} ${className}`}>{children}</td>;
 };
 
 SimpleTable.propTypes = {
@@ -68,6 +68,11 @@ SimpleTable.BodyTr.displayName = 'SimpleTable.BodyTr';
 
 SimpleTable.BodyContent.propTypes = {
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.object)]),
+  className: PropTypes.string,
+};
+
+SimpleTable.BodyContent.defaultProps = {
+  className: '',
 };
 
 SimpleTable.BodyContent.displayName = 'SimpleTable.BodyContent';
