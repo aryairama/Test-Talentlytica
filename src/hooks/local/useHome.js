@@ -79,7 +79,26 @@ const useHome = () => {
     },
     [studentAssessment]
   );
-  return { studentAssessment, setStudentAssessment, handlerButtonSave, listOptionAssessment, handlerSelectAssessment };
+  const handlerAddDataStudentAssessment = () => {
+    setStudentAssessment((oldVal) => [...oldVal, { ...initialAssessment }]);
+  };
+  const handlerRemoveDataStudentAssessment = (index) => {
+    try {
+      const temporaryStudentAssessment = [...studentAssessment];
+      temporaryStudentAssessment.splice(index, 1);
+      setStudentAssessment(temporaryStudentAssessment);
+    } catch (error) {}
+  };
+  return {
+    studentAssessment,
+    setStudentAssessment,
+    handlerButtonSave,
+    listOptionAssessment,
+    handlerSelectAssessment,
+    initialStudentAssessment,
+    handlerAddDataStudentAssessment,
+    handlerRemoveDataStudentAssessment,
+  };
 };
 
 export default useHome;

@@ -3,9 +3,19 @@ import style from './style.module.css';
 import useHome from '../../hooks/local/useHome';
 import { SimpleTable, Select, Button } from '../../components/base';
 import iconUser from '../../assets/icon/icon-user.png';
+import iconClose from '../../assets/icon/icon-close.svg';
 
 const Home = () => {
-  const { studentAssessment, handlerButtonSave, listOptionAssessment, handlerSelectAssessment } = useHome();
+  const {
+    studentAssessment,
+    handlerButtonSave,
+    listOptionAssessment,
+    handlerSelectAssessment,
+    setStudentAssessment,
+    initialStudentAssessment,
+    handlerAddDataStudentAssessment,
+    handlerRemoveDataStudentAssessment,
+  } = useHome();
   return (
     <div className={style['container-background']}>
       <div className={style['container-form']}>
@@ -21,6 +31,7 @@ const Home = () => {
                 <SimpleTable.HeadContent content="Aspek Penilaian 2" />
                 <SimpleTable.HeadContent content="Aspek Penilaian 3" />
                 <SimpleTable.HeadContent content="Aspek Penilaian 4" />
+                <SimpleTable.HeadContent content="" />
               </SimpleTable.Head>
               <SimpleTable.Body>
                 {studentAssessment.map((assessment, index) => (
@@ -58,12 +69,28 @@ const Home = () => {
                         onChange={(e) => handlerSelectAssessment(index, 'aspek_penilaian_4', e.value)}
                       />
                     </SimpleTable.BodyContent>
+                    <SimpleTable.BodyContent className="w-[25px]">
+                      {index > 0 && (
+                        <img
+                          src={iconClose}
+                          className="cursor-pointer min-w-[25px] min-h-[25px]"
+                          alt="icon-close"
+                          onClick={() => handlerRemoveDataStudentAssessment(index)}
+                        />
+                      )}
+                    </SimpleTable.BodyContent>
                   </SimpleTable.BodyTr>
                 ))}
               </SimpleTable.Body>
             </SimpleTable>
             <Button onClick={handlerButtonSave} className={style['btn-save']}>
               Simpan
+            </Button>
+            <Button onClick={handlerAddDataStudentAssessment} className={style['btn-save']}>
+              Tambah
+            </Button>
+            <Button onClick={() => setStudentAssessment(initialStudentAssessment)} className={style['btn-save']}>
+              Atur Ulang
             </Button>
             <div className="clear-both"></div>
           </div>
